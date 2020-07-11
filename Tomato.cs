@@ -1,7 +1,6 @@
 class Tomato : Plant {
 
-    public Tomato() {
-        super();
+    public Tomato() : base() {
         this.viability = 95;
         this.droughtLevel = 20;
         this.droughtResistance = 5;

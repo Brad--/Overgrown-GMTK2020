@@ -14,20 +14,7 @@ public class PlotController : MonoBehaviour
     void Update(){ }
 
     void Tick() {
-        this.CheckSurvival();
-        if (this.IsGrowing()) {
-            this.Grow();
-        }
-    }
-
-    bool IsGrowing() {
-        return this.growthState != PlotGrowthState.Unplanted && this.growthState != PlotGrowthState.Dead;
-    }
-
-    void Grow() {
-        if (this.growthState != PlotGrowthState.Dead) {
-            this.plant.Tick();
-        }
+        this.plant.Tick();
     }
 
     private void SeedPlant(Plant plant) {

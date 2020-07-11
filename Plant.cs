@@ -1,4 +1,7 @@
-class Plant {
+using System.Collections;
+using UnityEngine;
+
+public class Plant : MonoBehaviour {
     // Plant characteristsics
     public int viability; //95 means %95 chance per tick to survive, 5% chance to die
     public int droughtLevel; // Less waterLevel than droughtLevel = drought
@@ -18,15 +21,16 @@ class Plant {
     public int ticksSpentGrowing;
 
     public Plant() {
+        this.random = new Random();
         this.waterLevel = 20;
     }
 
-    public Seed() {
+    public void Seed() {
         this.ticksSpentGrowing = 0;
         this.growthState = PlotGrowthState.Seedling;
     }
 
-    public Tick() {
+    public void Tick() {
         if (SurvivesThisTick()) {
             Grow();
         } else {
@@ -34,7 +38,7 @@ class Plant {
         }
     }
 
-    private Grow() {
+    private void Grow() {
         this.ticksSpentGrowing++;
         this.waterLevel -= this.waterConsumptionLevel;
         if (this.ticksSpentGrowing >= this.ticksToGrow) {
@@ -44,7 +48,7 @@ class Plant {
         }
     }
 
-    private Die() {
+    private void Die() {
         this.growthState = PlotGrowthState.Dead;
     }
 
@@ -99,10 +103,10 @@ class Plant {
 
     private bool Roll(int survivalRate) {
         // If the next random number 0-100 is greater than survival rate, you die
-        return random.Next(0, 100) > survivalRate;
+        return Random.Range(0, 100) > survivalRate;
     }
 
-    public OnMouseClick() {
+    public void OnMouseClick() {
         // Check which tool is active
         // Is it being harvested or watered?
     }
