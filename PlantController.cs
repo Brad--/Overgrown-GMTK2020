@@ -41,7 +41,7 @@ public class PlantController : MonoBehaviour {
     public void SetSeedling() {
         plantBodyRenderer.sprite = this.seedling;
         // TODO set seedling transform
-        platbody
+        // 
     }
 
     public void SetBlueberry() {
