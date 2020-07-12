@@ -21,7 +21,6 @@ public class Plant : MonoBehaviour {
     public int ticksSpentGrowing;
 
     public Plant() {
-        this.random = new Random();
         this.waterLevel = 20;
     }
 
@@ -32,8 +31,10 @@ public class Plant : MonoBehaviour {
 
     public void Tick() {
         if (SurvivesThisTick()) {
+            Debug.Log("Plant is growing");
             Grow();
         } else {
+            Debug.Log("Plant ded");
             Die();
         }
     }
@@ -103,7 +104,7 @@ public class Plant : MonoBehaviour {
 
     private bool Roll(int survivalRate) {
         // If the next random number 0-100 is greater than survival rate, you die
-        return Random.Range(0, 100) > survivalRate;
+        return Random.Range(0, 100) <= survivalRate;
     }
 
     public void OnMouseClick() {

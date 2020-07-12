@@ -1,3 +1,6 @@
+using System.Collections;
+using UnityEngine;
+
 class Tomato : Plant {
 
     public Tomato() : base() {
@@ -14,5 +17,7 @@ class Tomato : Plant {
 
         this.ticksToGrow = 10;
         this.waterConsumptionLevel = 25;
+
+        Debug.Log("Planted a tomato");
     }
 }

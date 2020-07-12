@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlotController : MonoBehaviour
 {
     private Plant plant;
-    
 
     // Start is called before the first frame update
     void Start(){ }
@@ -13,8 +12,10 @@ public class PlotController : MonoBehaviour
     // Update is called once per frame
     void Update(){ }
 
-    void Tick() {
-        this.plant.Tick();
+    public void Tick() {
+        if (this.plant) {
+            this.plant.Tick();
+        }
     }
 
     private void SeedPlant(Plant plant) {
@@ -23,7 +24,6 @@ public class PlotController : MonoBehaviour
     }
 
     public void OnMouseDown() {
-        Debug.Log("ya clicked me, " + this.name);
-        this.SeedPlant(new Tomato());
+        this.SeedPlant(gameObject.AddComponent(typeof(Tomato)) as Tomato);
     }
 }

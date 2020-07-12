@@ -10,7 +10,10 @@ public class PatchController : MonoBehaviour
     // Update is called once per frame
     void Update() { }
 
-    void Tick() {
+    public void Tick() {
+        foreach(PlotController plot in this.GetPlots()) {
+            plot.Tick();
+        }
     }
 
     public void OnMouseDown() {
@@ -18,7 +21,6 @@ public class PatchController : MonoBehaviour
     }
 
     public Component[] GetPlots() {
-        // Should this save to a local var?
         return GetComponentsInChildren<PlotController>();
     }
 }
