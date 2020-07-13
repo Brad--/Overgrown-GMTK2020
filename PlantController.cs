@@ -51,4 +51,8 @@ public class PlantController : MonoBehaviour {
     public void SetGrownBody() {
 
     }
+
+    public void OnMouseDown() {
+        this.SetSeedling();
+    }
 }
